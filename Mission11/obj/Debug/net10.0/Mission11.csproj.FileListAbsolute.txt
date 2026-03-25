@@ -151,3 +151,4 @@ C:\Users\kajja\source\repos\Mission11\Mission11\obj\Debug\net10.0\refint\Mission
 C:\Users\kajja\source\repos\Mission11\Mission11\obj\Debug\net10.0\Mission11.pdb
 C:\Users\kajja\source\repos\Mission11\Mission11\obj\Debug\net10.0\Mission11.genruntimeconfig.cache
 C:\Users\kajja\source\repos\Mission11\Mission11\obj\Debug\net10.0\ref\Mission11.dll
+C:\Users\kajja\source\repos\Mission11\Mission11\obj\Debug\net10.0\Mission11.sourcelink.json

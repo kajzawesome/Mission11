@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kajja\\source\\repos\\Mission11\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B86F887B-4681-C1F3-8C82-7913EBF4C121}|Mission11\\Mission11.csproj|c:\\users\\kajja\\source\\repos\\mission11\\mission11\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B86F887B-4681-C1F3-8C82-7913EBF4C121}|Mission11\\Mission11.csproj|solutionrelative:mission11\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B86F887B-4681-C1F3-8C82-7913EBF4C121}|Mission11\\Mission11.csproj|c:\\users\\kajja\\source\\repos\\mission11\\mission11\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B86F887B-4681-C1F3-8C82-7913EBF4C121}|Mission11\\Mission11.csproj|solutionrelative:mission11\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B86F887B-4681-C1F3-8C82-7913EBF4C121}|Mission11\\Mission11.csproj|c:\\users\\kajja\\source\\repos\\mission11\\mission11\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B86F887B-4681-C1F3-8C82-7913EBF4C121}|Mission11\\Mission11.csproj|solutionrelative:mission11\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B86F887B-4681-C1F3-8C82-7913EBF4C121}|Mission11\\Mission11.csproj|c:\\users\\kajja\\source\\repos\\mission11\\mission11\\bookstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -54,19 +54,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "BooksController.cs",
               "DocumentMoniker": "C:\\Users\\kajja\\source\\repos\\Mission11\\Mission11\\Controllers\\BooksController.cs",
               "RelativeDocumentMoniker": "Mission11\\Controllers\\BooksController.cs",
               "ToolTip": "C:\\Users\\kajja\\source\\repos\\Mission11\\Mission11\\Controllers\\BooksController.cs",
               "RelativeToolTip": "Mission11\\Controllers\\BooksController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAkwAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T15:11:45.436Z"
+              "WhenOpened": "2026-03-18T15:11:45.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\kajja\\source\\repos\\Mission11\\Mission11\\Program.cs",
               "RelativeDocumentMoniker": "Mission11\\Program.cs",

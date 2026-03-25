@@ -1,42 +1,65 @@
-# Logs
+# ================================
+# LOGS
+# ================================
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Node
+# ================================
+# NODE / REACT
+# ================================
 node_modules/
 dist/
+dist-ssr/
+build/
+coverage/
+.vite/
 
-# .NET
+# Env files
+.env
+.env.*
+*.local
+
+# ================================
+# .NET / ASP.NET
+# ================================
 bin/
 obj/
+*.user
+*.rsuser
+*.suo
 
-# OS
+# Visual Studio / Rider
+.vs/
+.idea/
+
+# Solution files (optional)
+# Uncomment if you don't want to track solution files
+# *.sln
+
+# ================================
+# OS FILES
+# ================================
 .DS_Store
+Thumbs.db
 
-# Env
-.env
-
-# SQLite temp files
+# ================================
+# SQLITE (IMPORTANT)
+# ================================
 *.db-shm
 *.db-wal
+
+# ================================
+# EDITOR
+# ================================
+.vscode/*
+!.vscode/extensions.json
+
+# ================================
+# MISC
+# ================================
+*.swp
+*.tmp
