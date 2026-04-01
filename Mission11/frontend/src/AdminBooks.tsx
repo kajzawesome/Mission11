@@ -58,7 +58,8 @@ function AdminBooks() {
       body: JSON.stringify(newBook),
     })
     if (!res.ok) {
-      alert('Failed to add book. Please fill in all fields.')
+      const err = await res.json().catch(() => ({}))
+      alert(`Server error: ${err.error || err.title || JSON.stringify(err)}`)
       return
     }
     const added = await res.json()
