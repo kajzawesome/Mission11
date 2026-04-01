@@ -44,6 +44,7 @@ public class BooksController : ControllerBase
         try
         {
             book.BookId = 0;
+            book.ClassificationLegacy = book.Classification;
             _context.Books.Add(book);
             _context.SaveChanges();
             return Ok(book);
