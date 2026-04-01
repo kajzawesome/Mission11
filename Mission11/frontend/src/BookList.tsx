@@ -22,7 +22,7 @@ function BookList() {
   useEffect(() => {
     setLoading(true)
 
-    fetch(`http://localhost:5151/books?pageSize=${pageSize}&pageNum=${pageNum}&sortAsc=${sortAsc}&category=${category}`)
+    fetch(`${import.meta.env.VITE_API_URL}/books?pageSize=${pageSize}&pageNum=${pageNum}&sortAsc=${sortAsc}&category=${category}`)
       .then(res => res.json())
       .then(data => {
         setBooks(data.books)

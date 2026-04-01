@@ -37,4 +37,41 @@ public class BooksController : ControllerBase
 
         return Ok(new { Books = books, Total = totalBooks });
     }
+
+    [HttpPost]
+    public IActionResult AddBook([FromBody] Book book)
+    {
+        _context.Books.Add(book);
+        _context.SaveChanges();
+        return Ok(book);
+    }
+
+    [HttpPut("{bookId}")]
+    public IActionResult UpdateBook(int bookId, [FromBody] Book book)
+    {
+        var existing = _context.Books.Find(bookId);
+        if (existing == null) return NotFound();
+
+        existing.Title = book.Title;
+        existing.Author = book.Author;
+        existing.Publisher = book.Publisher;
+        existing.ISBN = book.ISBN;
+        existing.Classification = book.Classification;
+        existing.PageCount = book.PageCount;
+        existing.Price = book.Price;
+
+        _context.SaveChanges();
+        return Ok(existing);
+    }
+
+    [HttpDelete("{bookId}")]
+    public IActionResult DeleteBook(int bookId)
+    {
+        var book = _context.Books.Find(bookId);
+        if (book == null) return NotFound();
+
+        _context.Books.Remove(book);
+        _context.SaveChanges();
+        return NoContent();
+    }
 }
