@@ -41,10 +41,17 @@ public class BooksController : ControllerBase
     [HttpPost]
     public IActionResult AddBook([FromBody] Book book)
     {
-        book.BookId = 0;
-        _context.Books.Add(book);
-        _context.SaveChanges();
-        return Ok(book);
+        try
+        {
+            book.BookId = 0;
+            _context.Books.Add(book);
+            _context.SaveChanges();
+            return Ok(book);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { error = ex.Message, inner = ex.InnerException?.Message });
+        }
     }
 
     [HttpPut("{bookId}")]
