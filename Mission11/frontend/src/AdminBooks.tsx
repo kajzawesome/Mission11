@@ -3,7 +3,8 @@ import type { Book } from './types/Book'
 
 const API = `${import.meta.env.VITE_API_URL}/books`
 
-const emptyBook = (): Omit<Book, 'bookId'> => ({
+const emptyBook = (): Book => ({
+  bookId: 0,
   title: '',
   author: '',
   publisher: '',
@@ -56,6 +57,10 @@ function AdminBooks() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newBook),
     })
+    if (!res.ok) {
+      alert('Failed to add book. Please fill in all fields.')
+      return
+    }
     const added = await res.json()
     setBooks((prev) => [...prev, added])
     setNewBook(emptyBook())
