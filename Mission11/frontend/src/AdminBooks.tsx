@@ -10,6 +10,7 @@ const emptyBook = (): Book => ({
   publisher: '',
   isbn: '',
   classification: '',
+  category: '',
   pageCount: 0,
   price: 0,
 })
@@ -69,17 +70,22 @@ function AdminBooks() {
   }
 
   const numFields: (keyof Book)[] = ['pageCount', 'price']
-  const categories = ['Fiction', 'Non-Fiction', 'Biography', 'Science', 'History', 'Other']
+  const classifications = ['Fiction', 'Non-Fiction']
+  const categories = ['Classic', 'Biography', 'Science', 'History', 'Self-Help', 'Business', 'Other']
 
   const renderField = (field: keyof Book, book: Book, onChange: (f: keyof Book, v: string | number) => void) => {
     if (field === 'classification') {
       return (
-        <select
-          className="form-select"
-          value={String(book[field] ?? '')}
-          onChange={(e) => onChange(field, e.target.value)}
-        >
-          <option value="">Select category</option>
+        <select className="form-select" value={book.classification} onChange={(e) => onChange(field, e.target.value)}>
+          <option value="">Select...</option>
+          {classifications.map((c) => <option key={c} value={c}>{c}</option>)}
+        </select>
+      )
+    }
+    if (field === 'category') {
+      return (
+        <select className="form-select" value={book.category} onChange={(e) => onChange(field, e.target.value)}>
+          <option value="">Select...</option>
           {categories.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
       )
@@ -87,15 +93,15 @@ function AdminBooks() {
     return (
       <input
         className="form-control"
-        type={numFields.includes(field as any) ? 'number' : 'text'}
+        type={numFields.includes(field) ? 'number' : 'text'}
         value={String(book[field] ?? '')}
-        onChange={(e) => onChange(field, numFields.includes(field as any) ? Number(e.target.value) : e.target.value)}
+        onChange={(e) => onChange(field, numFields.includes(field) ? Number(e.target.value) : e.target.value)}
       />
     )
   }
 
   const allFields: (keyof Omit<Book, 'bookId'>)[] = [
-    'title', 'author', 'publisher', 'isbn', 'classification', 'pageCount', 'price',
+    'title', 'author', 'publisher', 'isbn', 'classification', 'category', 'pageCount', 'price',
   ]
 
   return (
@@ -136,6 +142,7 @@ function AdminBooks() {
               <th>Author</th>
               <th>Publisher</th>
               <th>ISBN</th>
+              <th>Classification</th>
               <th>Category</th>
               <th>Pages</th>
               <th>Price</th>
@@ -165,6 +172,7 @@ function AdminBooks() {
                   <td>{book.publisher}</td>
                   <td>{book.isbn}</td>
                   <td>{book.classification}</td>
+                  <td>{book.category}</td>
                   <td>{book.pageCount}</td>
                   <td>${book.price.toFixed(2)}</td>
                   <td>
