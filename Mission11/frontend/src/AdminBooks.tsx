@@ -68,7 +68,33 @@ function AdminBooks() {
     setShowAddForm(false)
   }
 
-  const bookFields: (keyof Omit<Book, 'bookId'>)[] = [
+  const numFields: (keyof Book)[] = ['pageCount', 'price']
+  const categories = ['Fiction', 'Non-Fiction', 'Biography', 'Science', 'History', 'Other']
+
+  const renderField = (field: keyof Book, book: Book, onChange: (f: keyof Book, v: string | number) => void) => {
+    if (field === 'classification') {
+      return (
+        <select
+          className="form-select"
+          value={String(book[field] ?? '')}
+          onChange={(e) => onChange(field, e.target.value)}
+        >
+          <option value="">Select category</option>
+          {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+        </select>
+      )
+    }
+    return (
+      <input
+        className="form-control"
+        type={numFields.includes(field as any) ? 'number' : 'text'}
+        value={String(book[field] ?? '')}
+        onChange={(e) => onChange(field, numFields.includes(field as any) ? Number(e.target.value) : e.target.value)}
+      />
+    )
+  }
+
+  const allFields: (keyof Omit<Book, 'bookId'>)[] = [
     'title', 'author', 'publisher', 'isbn', 'classification', 'pageCount', 'price',
   ]
 
@@ -86,20 +112,10 @@ function AdminBooks() {
           <div className="card-header fw-bold">Add New Book</div>
           <div className="card-body">
             <div className="row g-2">
-              {bookFields.map((field) => (
+              {allFields.map((field) => (
                 <div className="col-md-4" key={field}>
                   <label className="form-label text-capitalize">{field}</label>
-                  <input
-                    className="form-control"
-                    type={field === 'pageCount' || field === 'price' ? 'number' : 'text'}
-                    value={String(newBook[field])}
-                    onChange={(e) =>
-                      setNewBook((prev) => ({
-                        ...prev,
-                        [field]: field === 'pageCount' || field === 'price' ? Number(e.target.value) : e.target.value,
-                      }))
-                    }
-                  />
+                  {renderField(field, newBook, (f, v) => setNewBook((prev) => ({ ...prev, [f]: v })))}
                 </div>
               ))}
             </div>
@@ -130,26 +146,11 @@ function AdminBooks() {
             {books.map((book) =>
               editingBook?.bookId === book.bookId ? (
                 <tr key={book.bookId}>
-                  {bookFields.map((field) => (
+                  {allFields.map((field) => (
                     <td key={field}>
-                      <input
-                        className="form-control form-control-sm"
-                        type={field === 'pageCount' || field === 'price' ? 'number' : 'text'}
-                        value={String(editingBook[field])}
-                        onChange={(e) =>
-                          setEditingBook((prev) =>
-                            prev
-                              ? {
-                                  ...prev,
-                                  [field]:
-                                    field === 'pageCount' || field === 'price'
-                                      ? Number(e.target.value)
-                                      : e.target.value,
-                                }
-                              : prev
-                          )
-                        }
-                      />
+                      {renderField(field, editingBook, (f, v) =>
+                        setEditingBook((prev) => (prev ? { ...prev, [f]: v } : prev))
+                      )}
                     </td>
                   ))}
                   <td>
