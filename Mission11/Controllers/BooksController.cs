@@ -41,6 +41,7 @@ public class BooksController : ControllerBase
     [HttpPost]
     public IActionResult AddBook([FromBody] Book book)
     {
+        book.BookId = 0;
         _context.Books.Add(book);
         _context.SaveChanges();
         return Ok(book);

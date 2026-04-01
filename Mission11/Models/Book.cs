@@ -1,6 +1,6 @@
 ﻿public class Book
 {
-    public required int BookId { get; set; }  // adjust if needed
+    public int BookId { get; set; }
     public required string Title { get; set; }
     public required string Author { get; set; }
     public required string Publisher { get; set; }
