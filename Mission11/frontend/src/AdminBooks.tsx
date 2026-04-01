@@ -59,7 +59,7 @@ function AdminBooks() {
     })
     if (!res.ok) {
       const err = await res.json().catch(() => ({}))
-      alert(`Server error: ${err.error || err.title || JSON.stringify(err)}`)
+      alert(`Error: ${err.error}\nInner: ${err.inner}`)
       return
     }
     const added = await res.json()
