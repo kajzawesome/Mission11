@@ -8,8 +8,9 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+var dbPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "Bookstore.sqlite");
 builder.Services.AddDbContext<BookstoreContext>(options =>
-    options.UseSqlite("Data Source=./Data/Bookstore.sqlite"));
+    options.UseSqlite($"Data Source={dbPath}"));
 
 builder.Services.AddCors(options =>
 {
